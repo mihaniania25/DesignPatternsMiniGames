@@ -10,6 +10,16 @@ namespace DesignPatternsMiniGames.Utility
 
         private event Action<T> _handlers;
 
+        public PropagationField() : this(default)
+        {
+                
+        }
+
+        public PropagationField(T initValue)
+        {
+            _value = initValue;
+        }
+
         public T Value
         {
             get => GetValue();

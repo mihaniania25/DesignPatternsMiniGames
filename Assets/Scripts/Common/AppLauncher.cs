@@ -9,6 +9,7 @@ namespace DesignPatternsMiniGames.Common
         [SerializeField] private SceneLoadingManager _sceneLoader;
         [SerializeField] private WindowsManager _windowsManager;
         [SerializeField] private MiniGameUI _miniGameUI;
+        [SerializeField] private SoundManager _soundManager;
 
         private MiniGamesDirector _miniGamesDirector = new MiniGamesDirector();
         private bool _setUp = false;
@@ -32,7 +33,8 @@ namespace DesignPatternsMiniGames.Common
             {
                 SceneLoadingManager = _sceneLoader,
                 WindowsManager = _windowsManager,
-                MiniGameUI = _miniGameUI
+                MiniGameUI = _miniGameUI,
+                SoundManager = _soundManager
             });
 
             _miniGamesDirector.Setup();

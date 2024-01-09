@@ -9,7 +9,6 @@ namespace DesignPatternsMiniGames.Common
         public override bool Hideable => false;
         public override bool CloseableViaSubstrate => false;
 
-        [SerializeField] private Button _soundSwitchButton;
         [SerializeField] private Button _exitMiniGameButton;
 
         private Action _leavingMiniGameCallback;
@@ -24,13 +23,7 @@ namespace DesignPatternsMiniGames.Common
                 return;
 
             _leavingMiniGameCallback = windowData.OnLeaveAccepted;
-            _soundSwitchButton.onClick.AddListener(SwitchSound);
             _exitMiniGameButton.onClick.AddListener(TryExitMiniGame);
-        }
-
-        private void SwitchSound()
-        {
-#warning SWITCH SOUND NOT IMPLEMENTED!
         }
 
         private void TryExitMiniGame()
@@ -52,7 +45,6 @@ namespace DesignPatternsMiniGames.Common
         {
             _leavingMiniGameCallback = null;
 
-            _soundSwitchButton.onClick.RemoveListener(SwitchSound);
             _exitMiniGameButton.onClick.RemoveListener(TryExitMiniGame);
         }
     }

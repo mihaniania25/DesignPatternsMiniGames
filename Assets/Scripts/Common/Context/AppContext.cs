@@ -3,13 +3,18 @@
     public static class AppContext
     {
         public static AppConfigs AppConfigs { get; private set; }
+        public static PlayerModelHandler ModelHandler { get; private set; }
+        public static PlayerModel Model => ModelHandler.Model;
+
         public static SceneLoadingManager SceneLoadingManager { get; private set; }
         public static WindowsManager WindowsManager { get; private set; }
         public static MiniGameUI MiniGameUI { get; private set; }
+        public static SoundManager SoundManager { get; private set; }
 
         static AppContext()
         {
-            SetUp = false;
+            ModelHandler = new PlayerModelHandler();
+            ModelHandler.Init();
 
             AppConfigs = new AppConfigs();
         }
@@ -19,8 +24,7 @@
             SceneLoadingManager = contextComponents.SceneLoadingManager;
             WindowsManager = contextComponents.WindowsManager;
             MiniGameUI = contextComponents.MiniGameUI;
-
-            SetUp = true;
+            SoundManager = contextComponents.SoundManager;
         }
     }
 }
